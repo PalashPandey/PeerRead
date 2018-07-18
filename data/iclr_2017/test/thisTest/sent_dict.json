@@ -1,0 +1,546 @@
+{
+    "": [
+        0,
+        false,
+        [
+            "male",
+            "male",
+            "male",
+            "male",
+            "male"
+        ],
+        "Neural Combinatorial Optimization with Reinforcement Learning"
+    ],
+    "Authors' response well answered my questions. Thanks. \nEvaluation not changed.\n\n###\n\nThis paper proposes a neural model for generating tree structure output from scratch. The model does 1) separate the recurrence between depths and siblings; 2) separate the topology and label generation, and outperforms previous methods on a benchmark IFTTT dataset. Compared to previous tree-decoding methods, the model avoids manually annotating subtrees with special tokens, and thus is a very good alternative to such problems. The paper does solid experiments on one synthetic dataset, and outperforms alternative methods on one real-world IFTTT dataset. \n\nThere are couple of interesting results in the paper that I believe is worth further investigation. Firstly, on the synthetic dataset, the precision drops rapidly with the number of nodes. Is it because that the vector representation of the sequential encoder fails to provide sufficient information of long sequences, such that the tree decoder can not do a good job? Or is it because that such tree decoder is not tolerant to the long sequence input, i.e., large tree structure? I believe that it is important to understand this before a better model can be developed. For example, if it is the fault of encoder, maybe an attention layer can be added, as in a seq-to-seq model, to preserve more information of the input sequence. \n\nMoreover, besides only showing how the precision changes with the number of nodes in the tree, it might be interesting to investigate how it goes with 1) number of depths; 2) number of widths; 3) symmetricity; etc. Moreover, as greedy search is used in decoding, it might be interesting to see how it helps, if it does, to use beam-search in tree decoding. \n\nOn the IFTTT dataset, listing more statistics about this dataset might be helpful for better understanding the difficulty of this task. How deep are the trees? How large are the vocabularies on both language and program sides?\n\nThe paper is well written, except for minor typo as mentioned in my pre-review questions. \n\nIn general, I believe this is a solid paper, and more can be explored in this direction. So I tend to accept it.": [
+        3.574300000000001,
+        true,
+        [
+            "male",
+            "male"
+        ],
+        "Tree-structured decoding with doubly-recurrent neural networks"
+    ],
+    "Authors' response well answered my questions. Thanks. \nEvaluation not changed.\n\n###\n\nThis paper proposes a neural model for generating tree structure output from scratch. The model does 1) separate the recurrence between depths and siblings; 2) separate the topology and label generation, and outperforms previous methods on a benchmark IFTTT dataset. Compared to previous tree-decoding methods, the model avoids manually annotating subtrees with special tokens, and thus is a very good alternative to such problems. The paper does solid experiments on one synthetic dataset, and outperforms alternative methods on one real-world IFTTT dataset. \n\nThere are couple of interesting results in the paper that I believe is worth further investigation. Firstly, on the synthetic dataset, the precision drops rapidly with the number of nodes. Is it because that the vector representation of the sequential encoder fails to provide sufficient information of long sequences, such that the tree decoder can not do a good job? Or is it because that such tree decoder is not tolerant to the long sequence input, i.e., large tree structure? I believe that it is important to understand this before a better model can be developed. For example, if it is the fault of encoder, maybe an attention layer can be added, as in a seq-to-seq model, to preserve more information of the input sequence. \n\nMoreover, besides only showing how the precision changes with the number of nodes in the tree, it might be interesting to investigate how it goes with 1) number of depths; 2) number of widths; 3) symmetricity; etc. Moreover, as greedy search is used in decoding, it might be interesting to see how it helps, if it does, to use beam-search in tree decoding. \n\nOn the IFTTT dataset, listing more statistics about this dataset might be helpful for better understanding the difficulty of this task. How deep are the trees? How large are the vocabularies on both language and program sides?\n\nThe paper is well written, except for minor typo as mentioned in my pre-review questions. \n\nIn general, I believe this is a solid paper, and more can be explored in this direction. So I tend to accept it. ": [
+        3.574300000000001,
+        true,
+        [
+            "male",
+            "male"
+        ],
+        "Tree-structured decoding with doubly-recurrent neural networks"
+    ],
+    "Dear reviewers, \n\nI added another dataset to the draft (appendix): SemEval 2014 Task 1 semantic relatedness SICK dataset, as several of the recent works the reviewers pointed out have been reported on this dataset. Despite its simplicity, Doc2VecC significantly out-performs the winning solutions of the competition and several baseline methods, noticeably the dependency-tree RNNs introduced in [1], which relies on additional dependency parsers to compose sentence vectors from word embeddings. The performance of Doc2VecC is comparable (slightly worse) than the LSTM based methods or skip-thought vectors on this dataset. On the other hand, it is much faster to train and test. As reported in the original paper, training of the skip-thought vector models on the book corpus dataset takes around 2 weeks on GPU. In contrast, it takes less than 2 hours to learn the embeddings for Doc2VecC on a desktop with Intel i7 2.2Ghz cpu.\n\nI also provided more insight on why Skip-thought vectors did not perform well on the movie review dataset in Section 4.2 (Accuracy). \n\nI would greatly appreciate it if you could take another look at revisions and provide me with some feedbacks. \n\n[1] Socher, Richard, et al. \"Grounded compositional semantics for finding and describing images with sentences.\" Transactions of the Association for Computational Linguistics 2 (2014): 207-218.": [
+        1.3767,
+        true,
+        [
+            "female"
+        ],
+        "Efficient Vector Representation for Documents through Corruption"
+    ],
+    "Dear reviewers, \n\nThank you for your feedback. The updated manuscript included skip-thought as another baseline method. We will test this idea on more datasets, in particular the ones experimented in Skip-thought vectors in the submission. ": [
+        0.6249,
+        true,
+        [
+            "female"
+        ],
+        "Efficient Vector Representation for Documents through Corruption"
+    ],
+    "Extended the paper with experiments on the word relationship dataset, showing Doc2VecC generates better word embeddings in comparison to Word2Vec or Paragraph Vectors. ": [
+        0.4404,
+        true,
+        [
+            "female"
+        ],
+        "Efficient Vector Representation for Documents through Corruption"
+    ],
+    "I am very glad to read \"Our model and training code will be made available soon.\" Thanks for that! My question is: how soon is soon? During the review period? In time for the conference? ": [
+        1.0021,
+        false,
+        [
+            "male",
+            "male",
+            "male",
+            "male",
+            "male"
+        ],
+        "Neural Combinatorial Optimization with Reinforcement Learning"
+    ],
+    "I posted this question in a response below, but it seems to be getting ignored so I thought I'd bring it to the top, with some additional points.\n\nThanks for the update. The natural question to ask, then is - do there exist many (or any) problems that are both interesting and have not been, and cannot be, addressed by the existing combinatorial optimization community? You knock existing algorithms for being \"highly optimized\" to particular problems, but if every worthwhile problem has \"highly optimized\" solutions, what good is your work? \n\nAlso, please stop calling existing TSP solvers such as concorde a heuristic. Concorde produces solutions which are provably correct. Your approach does not, nor is it remotely close. From a practical perspective, this is an important distinction; I don't see why anyone would choose the latter when given the choice. The second paragraphs of the related work and introduction are guilty of this. Also in the related work - you say it solves cities with \"thousands of cities\" when it has solved a 85k problem. \n\nI'd also echo concerns about the toy-ness of the evaluation metrics here - 100 cities is 800x smaller than existing SOTA of 85k from TSPLib - a gap made exponentially larger by the combinatorial nature of the problem.\n\n": [
+        1.4769,
+        false,
+        [
+            "male",
+            "male",
+            "male",
+            "male",
+            "male"
+        ],
+        "Neural Combinatorial Optimization with Reinforcement Learning"
+    ],
+    "I think it would be useful to discuss the concept of *edge* of chaos here (see e.g. Bertschinger, Nachschlager - Real-Time Computation at the Edge of Chaos in Recurrent Neural Networks), i.e. the hypothesis that RNNs are optimal (in some sense) at the boundary between chaotic and deterministic regimes. Specifically, it would be nice to see if your network gets closer to this edge during training (I think it will).\n\nIt wasn't clear to me if you studied the chaoticity in the case *with* input... the \"epsilon-activation\" thing seems very nonstandard. Why didn't you just compute the mean Lyapunov exponent? You can do that with or without input. I think you might find that the RNN with input will approach the edge of chaos during training (Lyapunov exp gets closer to zero, probably starting from negative values in your case).\n\nThe LSTM phase space diagram in Fig. 2 looks pretty bad... I think that particular unit is not behaving well at all. What you should get in properly trained models is something like in Fig. 1 (a), but more noisy because there's effects from the input.\n\nAnyway, overall a very interesting paper! I'm glad to see RNNs studied from a chaotic dynamics perspective.": [
+        -0.4889999999999998,
+        true,
+        [
+            "male",
+            "male"
+        ],
+        "A recurrent neural network without chaos"
+    ],
+    "I think the authors provide an interesting direction for understanding and maybe constructing recurrent models that are easier to interpret. Is not clear where such direction will lead but I think it could be an interesting starting point for future work, one that worth exploring. ": [
+        1.3199999999999998,
+        true,
+        [
+            "male",
+            "male"
+        ],
+        "A recurrent neural network without chaos"
+    ],
+    "I'm using ": [
+        0.0,
+        true,
+        [
+            "female"
+        ],
+        "Efficient Vector Representation for Documents through Corruption"
+    ],
+    "In Table 3, what is the performance for the missing values of RL pretraining with 10.000 batches for Sampling T=1 and T=T*? \n\nSince performance improved much more from 100 to 1.000 batches for RL pretraining Sampling T=T* than it did for RL pretraining AS (e.g., 5.79->5.71 vs 5.74->5.71 for TSP50), I would expect RL pretraining Sampling T=T* to do better than RL pretraining AS when you use 10.000 samples. This would also change your qualitative conclusion in Table 2 and the overall result of the paper. You seem to glance over this in the text by saying \"we sample 1000 batches from a pretrained model, afer which we do not see significant improvement\", but seeing the much larger \"gradient\" from 50, 100, and 1000 batches than for RL pretraining AS, and seeing how key the result is to the final take-away from the paper, I would be far more convinced by just seeing the numbers for 10.000 batches.\n\nAlso, what is actually the difference between RL pretraining Sampling T=1 and T=T*? (Maybe I just missed this in the text.)\n": [
+        1.1214,
+        false,
+        [
+            "male",
+            "male",
+            "male",
+            "male",
+            "male"
+        ],
+        "Neural Combinatorial Optimization with Reinforcement Learning"
+    ],
+    "It is really a nice work and paper is written quite well. The related work section is comprehensive and the problem is well motivated. And in my view, the experiments are good enough especially the paper contribution is introducing a new model which can be very useful in generating structured outputs using recurrent structure.\n\nQuestions: \nq1) How long did it take to train each of the networks in the paper?\nq2) Wondering any plan to release the code?\n\n\nThanks.\n \n": [
+        2.3625,
+        true,
+        [
+            "male",
+            "male"
+        ],
+        "Tree-structured decoding with doubly-recurrent neural networks"
+    ],
+    "Several reviewers have posted comments asking about the capability of the proposed model to capture long-term dependencies. This is a natural question since the model was designed so that units get activated when presented the correct feature, then relax to zero at a rate controlled by the forget gate. At a first glance it is unclear that such a simple mechanism could capture long term dependencies (the relaxing rates might be too fast).\n\nWe added a simple experiment in the paper showing that long term dependencies can be obtained by stacking multiple layers of the basic architecture (see Figure 4). We took a 2-layer, 224-unit CFN network trained on Penn Treebank and ran it with the following input data: The first 1000 inputs x_t are the first 1000 words of the test set of PTB; All subsequent inputs are set to zero, so that x_t=0 if t>1000. For each layer we then select the 10 units that decay the slowest after t>1000 and plotted them on Figure 4. The first layer retains information for about 10 time steps, whereas the second layer retains information for about 100 steps. Adding a third or fourth layer would then allow the architecture to retain information for even longer periods. We have not yet implemented a multi-layer network to handle tasks (other than language modeling) where such longer-term dependencies are needed, but we believe the main obstacle here is one of proper initialization and training rather than a shortcoming of the architecture itself.\n\nImportantly, this behavior (i.e. higher layers decay more slowly) can be explained analytically, see equation (11).\n\nOverall, we find it interesting that complexity and long-term dependencies can plausibly be obtained in a classical way (i.e. stacking layers) rather than relying on the intricate and hard to interpret dynamics of an LSTM.": [
+        0.7968000000000001,
+        true,
+        [
+            "male",
+            "male"
+        ],
+        "A recurrent neural network without chaos"
+    ],
+    "Sorry for the late review -- I've been having technical problems with OpenReview which prevented me from posting.\n\nThis paper presents a method for learning to predict things from sets of data points. The method is a hierarchical version of the VAE, where the top layer consists of an abstract context unit that summarizes a dataset. Experiments show that the method is able to \"learn to learn\" by acquiring the ability to learn distributions from small numbers of examples.\n\nOverall, this paper is a nice addition to the literature on one- or few-shot learning. The method is conceptually simple and elegant, and seems to perform well. Compared to other recent papers on one-shot learning, the proposed method is simpler, and is based on unsupervised representation learning. The paper is clearly written and a pleasure to read.\n\nThe name of the paper is overly grandiose relative to what was done; the proposed method doesn\u2019t seem to have much in common with a statistician, unless one means by that \"someone who thinks up statistics\". \n\nThe experiments are well chosen, and the few-shot learning results seem pretty solid given the simplicity of the method.\n\nThe spatial MNIST dataset is interesting and might make a good toy benchmark. The inputs in Figure 4 seem pretty dense, though; shouldn\u2019t the method be able to recognize the distribution with fewer samples?  (Nitpick: the red points in Figure 4 don\u2019t seem to correspond to meaningful points as was claimed in the text.) \n\nWill the authors release the code?\n": [
+        4.0916,
+        true,
+        [
+            "male",
+            "male"
+        ],
+        "Towards a Neural Statistician"
+    ],
+    "Text matching models based on Attention mechanism make sense. \nThere are also some matching models based on Matching Matrix.\nAttention mechanism also computes a matching matrix implicitly and the attention weights before softmax are the values of the matching matrix. \nI wonder which way is better, Attention or Matching Matrix, and Why?\nHow do you think\uff1f\nI will appreciate it if you could compare these models in your future works.\n\nReference of Matching Matrix Models:\n1. A Deep Architecture for Semantic Matching with Multiple Positional Sentence Representations. AAAI 2016.\n2. Match-SRNN: Modeling the Recursive Matching Structure with Spatial RNN. IJCAI 2016.\n3. Text Matching as Image Recognition. AAAI 2016.": [
+        1.3214,
+        true,
+        [
+            null,
+            "female"
+        ],
+        "A Compare-Aggregate Model for Matching Text Sequences"
+    ],
+    "Thanks for a very interesting read.\n\nWhat happens if instead of driving the LSTMs with x_t = 0, you drive it with a fixed input, like the word \"What\"? Would that behave the same as in fig 3?\n\nIf you drive the LSTMs with some input and then fix x_t = 0 for t > T (as in fig 4), do you still see chaos? If there is gradual decay in the hidden units' activations, do you also see that the second layer forgets more slowly than the first?\n\nHave you tried training on the copy task as in the algorithmic learning literature (like NTM), to see whether there is a actual difference in how long memory is retained in CFN vs LSTM?": [
+        0.12210000000000011,
+        true,
+        [
+            "male",
+            "male"
+        ],
+        "A recurrent neural network without chaos"
+    ],
+    "The authors agreed that the paper presented a solid contribution and interesting (and somewhat surprising findings). The experiments are thorough and convincing, and while some reviewers raised concerns about a lack of comparisons of methods on a clear quantifiable objective, this is unfortunately a common issue in this field. Overall, this paper is a solid contribution with findings that would be interesting to the ICLR audience.": [
+        1.3994,
+        true,
+        [
+            "male",
+            "male",
+            "male",
+            "male"
+        ],
+        "What does it take to generate natural textures?"
+    ],
+    "The authors introduce a variant of the variational autoencoder (VAE) that models dataset-level latent variables. The idea is clearly motivated and well described. In my mind the greatest contribution of this paper is the movement beyond the relatively simple graphical model structure of the traditional VAEs and the introduction of more interesting structures to the deep learning community. \n\nComments:\n\n- It's not clear to me why this should be called a \"statistician\". Learning an approximate posterior over summary statistics is not the only imaginable way to summarize a dataset with a neural network. One could consider a maximum likelihood approach, etc. In general it felt like the paper could be more clear, if it avoided coining new terms like \"statistic network\" and stuck to the more accurate \"approximate posterior\".\n\n- The experiments are nice, and I appreciate the response to my question regarding \"one shot generation\". I still think that language needs to be clarified, specifically at the end of page 6. My understanding of Figure 5 is the following: Take an input set, compute the approximate posterior over the context vector, then generate from the forward model given samples from the approximate posterior. I would like clarification on the following: \n\n(a) Are the data point dependent vectors z generated from the forward model or taken from the approximate posterior? \n\n(b) I agree that the samples are of high-quality, but that is not a quantified statement. The advantage of VAEs over GANs is that we have natural ways of computing log-probabilities. To that end, one \"proper\" way of computing the \"one shot generation\" performance is to report log p(x | c) (where c is sampled from the approximate posterior) or log p(x) for held-out datasets. I suspect that log probability performance of these networks relative to a vanilla VAE without the context latent variable will be impressive. I still don't see a reason not to include that.": [
+        3.8661000000000003,
+        true,
+        [
+            "male",
+            "male"
+        ],
+        "Towards a Neural Statistician"
+    ],
+    "The authors of the paper set out to answer the question whether chaotic behaviour is a necessary ingredient for RNNs to perform well on some tasks. For that question's sake, they propose an architecture which is designed to not have chaos. The subsequent experiments validate the claim that chaos is not necessary.\n\nThis paper is refreshing. Instead of proposing another incremental improvement, the authors start out with a clear hypothesis and test it. This might set the base for future design principles of RNNs.\n\nThe only downside is that the experiments are only conducted on tasks which are known to be not that demanding from a dynamical systems perspective; it would have been nice if the authors had traversed the set of data sets more to find data where chaos is actually necessary.": [
+        0.5613,
+        true,
+        [
+            "male",
+            "male"
+        ],
+        "A recurrent neural network without chaos"
+    ],
+    "The authors propose amortized SVGD, an amortized form of prior work on SVGD, which is a particle variational method that maximally decreases the KL divergence at each update. \"amortized SVGD\" is done by training a neural network to learn this dynamic. They then apply this idea to train energy-based models, which admit a tractable unnormalized density.\n\nIn SVGD, the main difference from just MAP is the addition of a \"repulsive force\" that prevents degeneracy by encouraging probability mass to be spread to locations outside the mode. How this is able to still act as a strong enough entropy-like term in high dimensions is curious. From my understanding of their previous work, this was not a problem as the only experiments were on toy and UCI data sets.\n\nIn the experimental results here, they apply the kernel on the hidden representation of an autoencoder, which seems key, similar to Li et al. (2015) where their kernel approach for MMD would not work as well otherwise. However, unlike Li et al. (2015) the autoencoder is part of the model itself and not fixed. This breaks much of the authors' proposed motivation and criticisms of prior work, if they must autoencode onto some low-dimensional space (putting most effort then on the autoencoder, which changes per iteration) before then applying their method.\n\nUnlike previous literature which uses inference networks, their amortized SVGD approach seems in fact slower than the non-amortized approach. This is because they must make the actual update on xi before then regressing to perform the update on eta (in previous approaches, this would be like having to perform local inferences before then updating inference network parameters, or at least partially performing the local inference). This seems quite costly during training.\n\nI recommend the paper be rejected, and that the authors provide more comprehensive experimental results, expecially around the influence of the autoencoder, the incremental updates versus full updates, and the training time of amortized vs non-amortized approaches. The current results are promising but unclear why given the many knobs that the authors are playing with.\n\nReferences\n\nLi, Y., Swersky, K., & Zemel, R. (2015). Generative Moment Matching Networks. Presented at the International Conference on Machine Learning.": [
+        3.4986000000000006,
+        false,
+        [
+            null,
+            "male"
+        ],
+        "Learning to Draw Samples: With Application to Amortized MLE for Generative Adversarial Learning"
+    ],
+    "The framework of Gatys et al. demonstrated that correlation statistics (empirical Gram matrices) of deep feature responses provide an excellent characterisation of visual textures. This paper investigates in detail which kind of deep or shallow networks may work well in this framework. One of the main findings is that that very shallow nets, consisting of a single filter bank with random weights, work surprisingly well, and for simple and regular textures may produce results which are visually superior to complex data-adapted filters such as the ones in networks like VGG-19. More broadly, the paper contains an interesting and informative discussion on the strength and limitations on such methods for texture synthesis.\n\nFigure 4 shows that the optimisation of images with respect to shallow filter banks may result in texture images that have a lower VGG-19 loss than optimising the VGG-19 objective directly. This is imputed to the difficulty of optimising the highly non-linear VGG-19 cost function, which is a reasonable explanation. In the new supplementary material, the authors show that better optimisation results can be obtained by initialising the VGG-19-based optimisation with the shallow network optimisation results, which is a useful complement to the original experiments.\n\nThe main limitation of the paper is that it does not systematically compare different methods against a quantifiable objective. It is trivial to define image statistics that would allow to simply generate an exact copy of any reference texture, hence with very good visual quality. Such trivial statistics would also be very shallow. The aim is instead to capture a texture distribution, and measuring how well a method meets this challenge remains an open problem. Hence, while the empirical results seem to confirm the intuition that simple statistics are good enough for texture synthesis both in terms of quality and diversity (when compared to more complex statistics), it is difficult to conclusively confirm that this is the case.\n\nThe authors indicate that diversity could be measured in terms of entropy. This is reasonable, but, as they acknowledge in their answers to questions, difficult to do in practice. Furthermore, this would still not account for the other aspect of the problem, namely visual quality. They also suggest to perform a psychophysical assessment, which may be the only practical way of addressing this problem, but deem that to be material for future work.\n\nOverall, since evaluation of image generation is such an hard problem, I think the paper still has sufficient strengths to warrant publication in ICLR. Still, some form of psychophysical assessment would be useful to confirm the intuitions that, at present, can only be obtained by inspecting the figure sin the paper and in the supplementary material.": [
+        2.8994999999999993,
+        true,
+        [
+            "male",
+            "male",
+            "male",
+            "male"
+        ],
+        "What does it take to generate natural textures?"
+    ],
+    "The framework of Gatys et al. demonstrated that correlation statistics (empirical Gram matrices) of deep feature responses provide an excellent characterisation of visual textures. This paper investigates in detail which kind of deep or shallow networks may work well in this framework. One of the main findings is that that very shallow nets, consisting of a single filter bank with random weights, work surprisingly well, and for simple and regular textures may produce results which are visually superior to complex data-adapted filters such as the ones in networks like VGG-19. More broadly, the paper contains an interesting and informative discussion on the strength and limitations on such methods for texture synthesis.\n\nFigure 4 shows that the optimisation of images with respect to shallow filter banks may result in texture images that have a lower VGG-19 loss than optimising the VGG-19 objective directly. This is imputed to the difficulty of optimising the highly non-linear VGG-19 cost function, which is a reasonable explanation. In the new supplementary material, the authors show that better optimisation results can be obtained by initialising the VGG-19-based optimisation with the shallow network optimisation results, which is a useful complement to the original experiments.\n\nThe main limitation of the paper is that it does not systematically compare different methods against a quantifiable objective. It is trivial to define image statistics that would allow to simply generate an exact copy of any reference texture, hence with very good visual quality. Such trivial statistics would also be very shallow. The aim is instead to capture a texture distribution, and measuring how well a method meets this challenge remains an open problem. Hence, while the empirical results seem to confirm the intuition that simple statistics are good enough for texture synthesis both in terms of quality and diversity (when compared to more complex statistics), it is difficult to conclusively confirm that this is the case.\n\nThe authors indicate that diversity could be measured in terms of entropy. This is reasonable, but, as they acknowledge in their answers to questions, difficult to do in practice. Furthermore, this would still not account for the other aspect of the problem, namely visual quality. They also suggest to perform a psychophysical assessment, which may be the only practical way of addressing this problem, but deem that to be material for future work.\n\nOverall, since evaluation of image generation is such an hard problem, I think the paper still has sufficient strengths to warrant publication in ICLR. Still, some form of psychophysical assessment would be useful to confirm the intuitions that, at present, can only be obtained by inspecting the figure sin the paper and in the supplementary material.\n\n\n\n": [
+        2.8994999999999993,
+        true,
+        [
+            "male",
+            "male",
+            "male",
+            "male"
+        ],
+        "What does it take to generate natural textures?"
+    ],
+    "The introduced method for producing document representations is simple, efficient and potentially quite useful. Though we could quibble a bit that the idea is just a combination of known techniques, the reviews generally agree that the idea is interesting.\n \n Pros:\n + interesting and simple algorithm\n + strong performance\n + efficient\n \n Cons:\n + individual ideas are not so novel\n \n This is a paper that will be well received at a poster presentation.": [
+        2.1687,
+        true,
+        [
+            "female"
+        ],
+        "Efficient Vector Representation for Documents through Corruption"
+    ],
+    "The paper introduces a new model for generating trees decorated with node embeddings. Interestingly the authors do not assume that even leaf nodes in the tree are known a-priori. There has been very little work on this setting, and, the problem is quite important and general. Though the experiments are somewhat limited, reviewers generally believe that they are sufficient to show that the approach holds a promise.\n \n + an important and under-explored setting\n + novel model\n + well written\n \n - experimentation could be stronger (but seems sufficient -- both on real and artificial data)": [
+        1.2015,
+        true,
+        [
+            "male",
+            "male"
+        ],
+        "Tree-structured decoding with doubly-recurrent neural networks"
+    ],
+    "The paper presents a general approach to modeling for natural language understanding problems with two distinct textual inputs (such as a question and a source text) that can be aligned in some way. In the approach, soft attention is first used to derive alignments between the tokens of the two texts, then a comparison function uses the resulting alignments (represented as pairs of attention queries and attention results) to derive a representations that are aggregated by CNN into a single vector from which an output can be computed. The paper both presents this as an overall modeling strategy that can be made to work quite well, and offers a detailed empirical analysis of the comparison component of the model.\n\nThis work is timely. Language understanding problems of this kind are a major open issue in NLP, and are just at the threshold of being addressable with representation learning methods. The work presents a general approach which is straightforward and reasonable, and shows that it can yield good results. The work borders on incremental (relative to their earlier work or that of Parikh et al.), but it contributes in enough substantial ways that I'd strongly recommend acceptance.\n\nDetail: \n- The model, at least as implemented for the problems with longer sequences (everything but SNLI), is not sensitive to word order. It is empirically competitive, but this insensitivity places a strong upper bound on its performance. The paper does make this clear, but it seems salient enough to warrant a brief mention in the introduction or discussion sections.\n- If I understand correctly, your attention strategy is based more closely on the general/bilinear strategy of Luong et al. '15 than it is on the earlier Bahdanau work. You should probably cite the former (or some other more directly relevant reference for that strategy).\n- Since the NTN risks overfitting because of its large number of parameters, did you try using a version with input dimension l and a smaller output dimension m (so an l*l*m tensor)?\n- You should probably note that SubMultNN looks a lot like the strategy for *sentence*-level matching in the Lili Mou paper you cite.\n- Is there a reason you use the same parameters for preprocessing the question and answer in (1)? These could require different things to be weighted highly.": [
+        2.5897000000000006,
+        true,
+        [
+            null,
+            "female"
+        ],
+        "A Compare-Aggregate Model for Matching Text Sequences"
+    ],
+    "The paper presents a general approach to modeling for natural language understanding problems with two distinct textual inputs (such as a question and a source text) that can be aligned in some way. In the approach, soft attention is first used to derive alignments between the tokens of the two texts, then a comparison function uses the resulting alignments (represented as pairs of attention queries and attention results) to derive a representations that are aggregated by CNN into a single vector from which an output can be computed. The paper both presents this as an overall modeling strategy that can be made to work quite well, and offers a detailed empirical analysis of the comparison component of the model.\n\nThis work is timely. Language understanding problems of this kind are a major open issue in NLP, and are just at the threshold of being addressable with representation learning methods. The work presents a general approach which is straightforward and reasonable, and shows that it can yield good results. The work borders on incremental (relative to their earlier work or that of Parikh et al.), but it contributes in enough substantial ways that I'd strongly recommend acceptance.\n\nDetail: \n- The model, at least as implemented for the problems with longer sequences (everything but SNLI), is not sensitive to word order. It is empirically competitive, but this insensitivity places a strong upper bound on its performance. The paper does make this clear, but it seems salient enough to warrant a brief mention in the introduction or discussion sections.\n- If I understand correctly, your attention strategy is based more closely on the general/bilinear strategy of Luong et al. '15 than it is on the earlier Bahdanau work. You should probably cite the former (or some other more directly relevant reference for that strategy).\n- Since the NTN risks overfitting because of its large number of parameters, did you try using a version with input dimension l and a smaller output dimension m (so an l*l*m tensor)?\n- You should probably note that SubMultNN looks a lot like the strategy for *sentence*-level matching in the Lili Mou paper you cite.\n- Is there a reason you use the same parameters for preprocessing the question and answer in (1)? These could require different things to be weighted highly.\n": [
+        2.5897000000000006,
+        true,
+        [
+            null,
+            "female"
+        ],
+        "A Compare-Aggregate Model for Matching Text Sequences"
+    ],
+    "The paper propose DRNN as a neural decoder for tree structures. I like the model architecture since it has two clear improvements over traditional approaches \u2014 (1) the information flows in two directions, both from the parent and from siblings, which is desirable in tree structures (2) the model use a probability distribution to model the tree boundary (i.e. the last sibling or the leaf). This avoids the use of special ending symbols which is larger in size and putting more things to learn for the parameters (shared with other symbols).\n\nThe authors test the DRNN using the tasks of recovering the synthetic trees and recovering functional programs. The model did better than traditional methods like seq2seq models.\n\nI think the recovering synthetic tree task is not very satisfying for two reasons \u2014 (1) the surface form itself already containing some of the topological information which makes the task easier than it should be (2) as we can see from figure 3, when the number of nodes grows (even to a number not very large), the performance of the model drops dramatically, I am not sure if a simple baseline only captures the topological information in the surface string would be much worse than this. And DRNN in this case, seems can\u2019t show its full potentials since the length of the information flow in the model won\u2019t be very long.\n\nI think the experiments are interesting. But I think there are some other tasks which are more difficult and the tree structure information are more important in such tasks. For example, we have the seq2seq parsing model (Vinyals et al, 2014), is it possible to use the DRNN proposed here on the decoder side? I think tasks like this can show more potentials of the DRNN and can be very convincing that model architectures like this are better than traditional alternatives.": [
+        2.2285999999999997,
+        true,
+        [
+            "male",
+            "male"
+        ],
+        "Tree-structured decoding with doubly-recurrent neural networks"
+    ],
+    "The reviewers all enjoyed this paper and the analysis.\n \n pros:\n - novel new model\n - interesting insights into the design of model, through analysis of trajectories of hidden states of RNNs.\n \n cons:\n - results are worse than LSTMs.": [
+        0.6463000000000002,
+        true,
+        [
+            "male",
+            "male"
+        ],
+        "A recurrent neural network without chaos"
+    ],
+    "There is a large body of work on solving TSP instances that this paper ignores. In particular, the concorde algorithm has produced provably optimal solutions to problems as large as 85,900 cities, and can solve 100+ city problems in a few seconds on a single 500MHz core. Thus, the claims made that this is even close to being a useful tool for solving TSP problems are demonstrably untrue.\n\n": [
+        0.35629999999999995,
+        false,
+        [
+            "male",
+            "male",
+            "male",
+            "male",
+            "male"
+        ],
+        "Neural Combinatorial Optimization with Reinforcement Learning"
+    ],
+    "This is an interesting paper that adds nicely to the literature on VAEs and one-shot generalisation. This will be of interest to the community and will contribute positively to the conference.": [
+        1.4314,
+        true,
+        [
+            "male",
+            "male"
+        ],
+        "Towards a Neural Statistician"
+    ],
+    "This is very interesting to me! Thank you for this.\n\nAfter reading this paper, I tested the Concorde. I think the Concorde allows only integer distances(if use Euclidean distance, they round off), so cannot provide optimal solution of Euclidean TSP.\nBut error can be small if multiply the distance by a large constant.\n\nI want to know that, if I correct, does 'optimal' means a solution which is very closed to optimal?": [
+        0.4586999999999999,
+        false,
+        [
+            "male",
+            "male",
+            "male",
+            "male",
+            "male"
+        ],
+        "Neural Combinatorial Optimization with Reinforcement Learning"
+    ],
+    "This paper applies the pointer network architecture\u2014wherein an attention mechanism is fashioned to point to elements of an input sequence, allowing a decoder to output said elements\u2014in order to solve simple combinatorial optimization problems such as the well-known travelling salesman problem. The network is trained by reinforcement learning using an actor-critic method, with the actor trained using the REINFORCE method, and the critic used to estimate the reward baseline within the REINFORCE objective.\n\nThe paper is well written and easy to understand. Its use of a reinforcement learning and attention model framework to learn the structure of the space in which combinatorial problems of variable size can be tackled appears novel. Importantly, it provides an interesting research avenue for revisiting classical neural-based solutions to some combinatorial optimization problems, using recently-developed sequence-to-sequence approaches. As such, I think it merits consideration for the conference.\n\nI have a few comments and some important reservations with the paper:\n\n1) I take exception to the conclusion that the pointer network approach can handle general types of combinatorial optimization problems. The crux of combinatorial problems \u2014 for practical applications \u2014 lies in the complex constraints that define feasible solutions (e.g. simple generalizations of the TSP that involve time windows, or multiple salesmen). For these problems, it is no longer so simple to exclude possible solutions from the enumeration of the solution by just \u00ab striking off \u00bb previously-visited instances; in fact, for many of these problems, finding a single feasible solution might in general be a challenge. It would be relevant to include a discussion of whether the Neural Combinatorial Optimization approach could scale to these important classes of problems, and if so, how. My understanding is that this approach, as presented, would be mostly suitable for assignment problems with a very simple constraint structure.\n\n2) The operations research literature is replete with a large number of benchmark problems that have become standard to compare solver quality. For instance, TSPLIB contains a large number of TSP instances (": [
+        0.3416999999999998,
+        false,
+        [
+            "male",
+            "male",
+            "male",
+            "male",
+            "male"
+        ],
+        "Neural Combinatorial Optimization with Reinforcement Learning"
+    ],
+    "This paper considers the energy-based model interpretation of GAN, where the discriminator is an unnormalized model for the likelihood of a generative model p(x|theta) and the generator is a directed model that approximates this distribution. The generator is used to draw approximate negative phase samples that are used in stochastic maximum likelihood / contrastive divergence learning of the EBM / discriminator.\n\nThe main idea in the paper is to fit the generator by following the Stein variational gradient. In practice this gradient consists of the usual gradient provided by the discriminator with an added term that provides a repulsive force between the sampled data points to increase sample diversity.\n\nThe idea of using a kernel to push apart the sampled points is interesting, and will work in low dimensions, but it is hard to see how it can work in full scale images. For high dimensional samples x, the proposed kernel is unlikely to provide a useful distance measure between points. There are no convincing experiments in the paper that show otherwise. Specifically:\n\n- There is no experiment that compares between standard GAN and GAN + repulsion, using the same architecture. (please address this in the rebuttal)\n- If the Stein variational idea is taken literally, the right thing to do would be to fully optimize the generator at every step, and then taking a single optimization step on the discriminator. Instead, each is updated in turn, and the learning rates of both steps are adjusted to keep the two \"in line\".\n- The kernel used to fit the generator is defined in the auto-encoder space of the discriminator, and thus depends on the discriminator parameters. The objective that is used to fit the generator thus changes at every step, and the procedure can no longer be interpreted as stochastic gradient descent with respect to any single well defined objective.\n\nThe authors obtain good results: The generated images clearly look better than those generated by DCGAN. However, their approach has a number of changes compared to DCGAN, so it is not clear where the improvement comes from. In addition, by now the DCGAN is no longer a very strong baseline, as various other techniques have been proposed.\n\nNote: The use of phi for both the \"particle gradient direction\" and energy function is confusing": [
+        3.5453,
+        false,
+        [
+            null,
+            "male"
+        ],
+        "Learning to Draw Samples: With Application to Amortized MLE for Generative Adversarial Learning"
+    ],
+    "This paper discusses a method for computing vector representations for documents by using a skip-gram style learning mechanism with an added regularizer in the form of a global context vector with various bits of drop out. While none of the individual components proposed in this paper are new, I believe that the combination in this fashion is. Further, I appreciated the detailed analysis of model behaviour in section 3.\n\nThe main downside to this submission is in its relative weakness on the empirical front. Arguably there are more interesting tasks than sentiment analysis and k-way classification! Likewise, why waste 2/3 of a page on t-sne projections rather than use that space for further analysis?\n\nWhile I am a bit disappointed by this reduced evaluation and agree with the other reviewers concerning soft baselines, I think this paper should be accepted: it's an interesting algorithm, nicely composed and very efficient, so it's reasonable to assume that other readers might have use for some of the ideas presented here.": [
+        0.3928000000000001,
+        true,
+        [
+            "female"
+        ],
+        "Efficient Vector Representation for Documents through Corruption"
+    ],
+    "This paper is methodologically very interesting, and just based on the methodological contribution I would vote for acceptance. However, the paper's sweeping claims of clearly beating existing baselines for TSP have been shown to not hold, with the local search method LK-H solving all the authors' instances to optimality -- in seconds on a CPU, compared to clearly suboptimal results by the authors' method in 25h on a GPU. \n\nSeeing this clear dominance of the local search method LK-H, I find it irresponsible by the authors that they left Figure 1 as it is -- with the line for \"local search\" referring to an obviously poor implementation by Google rather than the LK-H local search method that everyone uses. For example, at NIPS, I saw this Figure 1 being used in a talk (I am not sure anymore by whom, but I don't think it was by the authors), the narrative being \"RNNs now also clearly perform better than local search\". Of course, people would use a figure like that for that purpose, and it is clearly up to the authors to avoid such misconceptions. \n\nThe right course of action upon realizing the real strength of local search with LK-H would've been to make \"local search\" the same line as \"Optimal\", showing that the authors' method is still far worse than proper local search. But the authors chose to leave the figure as it was, still suggesting that their method is far better than local search. Probably the authors didn't even think about this, but this of course will mislead the many superficial readers. To people outside of deep learning, this must look like a sensational yet obviously wrong claim. I thus vote for rejection despite the interesting method. \n\n------------------------\n\nUpdate after rebuttal and changes:\n\nI'm torn about this paper. \n\nOn the one hand, the paper is very well written and I do think the method is very interesting and promising. I'd even like to try it and improve it in the future. So, from that point of view a clear accept.\n\nOn the other hand, the paper was using extremely poor baselines, making the authors' method appear sensationally strong in comparison, and over the course of many iterations of reviewer questions and anonymous feedback, this has come down to the authors' methods being far inferior to the state of the art. That's fine (I expected that all along), but the problem is that the authors don't seem to want this to be true... E.g., they make statements, such as \"We find that both greedy approaches are time-efficient and just a few percents worse than optimality.\"\nThat statement may be true, but it is very well known in the TSP community that it is typically quite trivial to get to a few percent worse than optimality. What's hard and interesting is to push those last few percent. \n(As a side note: the authors probably don't stop LK-H once it has found the optimal solution, like they do with their own method after finding a local optimum. LK-H is an anytime algorithm, so even if it ran for a day that doesn't mean that it didn't find the optimal solution after milliseconds -- and a solution a few percent suboptimal even faster).\n\nNevertheless, since the claims have been toned down over the course of the many iterations, I was starting to feel more positive about this paper when just re-reading it. That is, until I got to the section on Knapsack solving. The version of the paper I reviewed was not bad here, as it at least stated two simple heuristics that yield optimal solutions:\n\n\"Two simple heuristics are ExpKnap, which employs brand-and-bound with Linear Programming bounds (Pisinger, 1995), and MinKnap, which employs dynamic programming with enumerative bounds (Pisinger, 1997). Exact solutions can also be optained by quantizing the weights to high precisions and then performing dynamic programming with a pseudo-polynomial complexity (Bertsimas & Demir, 2002).\" That version then went on to show that these simple heuristics were already optimal, just like their own method.\n\nIn a revision between December 11 and 14, however, that paragraph, along with the optimal results of ExpKnap and MinKnap seems to have been dropped, and the authors instead introduced two new poor baseline methods (random search and greedy). This was likely in an effort to find some methods that are not optimal on these very easy instances. I personally find it pointless to present results for random search here, as nobody would use that for TSP. It's like comparing results on MNIST against a decision stump (yes, you'll do better than that, but that is not surprising). The results for greedy are interesting to see. However, dropping the strong results of the simple heuristics ExpKnap and MinKnap (and their entire discussion) appears unresponsible, since the resulting table in the new version of the paper now suggests that the authors' method is better than all baselines. Of course, if all that one is after is a column of bold numbers for ones own approach that's what one can do, but I don't find it responsible to hide the better baselines. Also, why don't the authors try at least the same OR-tools solver from Google that they tried for TSP? It seems to support Knapsack directly: ": [
+        9.8054,
+        false,
+        [
+            "male",
+            "male",
+            "male",
+            "male",
+            "male"
+        ],
+        "Neural Combinatorial Optimization with Reinforcement Learning"
+    ],
+    "This paper poses an interesting idea: removing chaotic behavior or RNNs.\nWhile many other papers on new RNN architecture usually focus too much on the performance improvement and leave the analysis part on their success as a black-box, this paper does a good job on presenting why its method may work well.\n\nAlthough, the paper shows lots of comparison between the chaotic systems (GRUs & LSTMs) and the stable system (proposed CFN model), the reviewer is not fully convinced by the main claim of this paper, the nuance that chaotic behaviour makes dynamic system to have rich representation power but makes the system too unstable. In the paper, the LSTM shows a very sensitive behaviour, even when a very small amount of noise is added to the input. However, it still performs surprisingly well with this chaotic behaviour. \n\nMeasuring the model complexity is a very difficult task, therefore, many papers manage to use either same number of hidden units or choose approximately close model sizes. In this paper, the experiments were carried by using the same amount of parameters for both the LSTM and CFN. However, I think the CFN may have much more simpler computational graph. Taking the idea of this work, can we develop a stable dynamic system, but which does not only have one attractor?\n\nIt is also interesting to see that the layers of CFNs are updated in different timescales in a sense that the decaying speed decreases when the layer gets higher. Could you provide more statistics on this? For example, what is the average relaxation time of the whole hidden units at each layer?\n\nBatch normalization and layer normalization can be helpful to make the training of RNNs become more stable. How would the behaviour of batch normalized or perhaps layer normalized LSTM look like? Also, it is often not trivial to make batch normalization or layer normalization to work on a new architecture. I think it may be useful to compare batch normalized or layer normalized versions of the LSTM and CFN.\n\nThe quality of the work is good, explanation is clear enough along with nice analyses and proofs. Overall, the performance is not any better than LSTMs, but it is still interesting when thinking of simplicity of this model. I am a bit concerned if this model might not work that well in more harder task, e.g., translation. Figure 4 of this paper is very interesting, where the proposed architecture shows that the hidden units at the second layer tends to keep its information longer than the first layer ones.": [
+        4.0081,
+        true,
+        [
+            "male",
+            "male"
+        ],
+        "A recurrent neural network without chaos"
+    ],
+    "This paper presents a framework for creating document representations. \nThe main idea is to represent a document as an average of its word embeddings with a data-dependent regularization that favors informative or rare words while forcing common words to be close to 0. \nExperiments on sentiment analysis and document classification show that the proposed method has the lowest error rates compared to baseline document embedding methods. \n\nWhile I like the motivation of finding the best way to encode a document into a vector, the paper does not offer significant technical contributions.\nMost of the techniques are not new, and the main selling point is the simplicity and speed of the proposed method. \nFor this reason, I would like to see good results for more than two tasks to be convinced that this is the best way to learn document representations.  \nFor RNN-LM, is the LM trained to minimize classification error, or is it trained  as a language model? Did you use the final hidden state as the representation, or the average of all hidden states?\nOne of the most widely used method to represent documents now is to have a bidirectional LSTM and concatenate the final hidden states as the document representation. \nI think it would be useful to know how the proposed method compares to this approach for tasks such as document classification or sentiment analysis.": [
+        1.6601,
+        true,
+        [
+            "female"
+        ],
+        "Efficient Vector Representation for Documents through Corruption"
+    ],
+    "This paper presents an idea with a sensible core (augmenting amortized inference with per-instance optimization) but with an overcomplicated and ad-hoc execution. The reviewers provided clear guidance for how this paper could be improved, and thus I invite the authors to submit this paper to the workshop track.": [
+        0.8457,
+        false,
+        [
+            null,
+            "male"
+        ],
+        "Learning to Draw Samples: With Application to Amortized MLE for Generative Adversarial Learning"
+    ],
+    "This paper proposed a compare-aggregate model for the NLP tasks that require semantically comparing the text sequences, such as question answering and textual entailment.\nThe basic framework of this model is to apply a convolutional neural network (aggregation) after a element-wise operation (comparison) over the attentive outputs of the LSTMs. \nThe highlighted part is the comparison, where this paper compares several different methods for matching text sequences, and the element-wise subtraction/multiplication operations are demonstrated to achieve generally better performance on four different datasets.\nWhile the weak point is that this is an incremental work and a bit lack of innovation. A qualitative evaluation about how subtraction, multiplication and other comparison functions perform on varied kinds of sentences would be more interesting.   \n\n": [
+        0.5513000000000001,
+        true,
+        [
+            null,
+            "female"
+        ],
+        "A Compare-Aggregate Model for Matching Text Sequences"
+    ],
+    "This paper proposes a compare-aggregate framework that performs word-level matching followed by aggregation with convolutional neural networks. It compares six different comparison functions and evaluates them on four datasets. Extensive experimental results have been reported and compared against various published baselines.\n\nThe paper is well written overall.\n\nA few detailed comments:\n* page 4, line5: including a some -> including some\n* What's the benefit of the preprocessing and attention step? Can you provide the results without it?\n* Figure 2 is hard to read, esp. when on printed hard copy. Please enhance the quality.\n": [
+        0.8448,
+        true,
+        [
+            null,
+            "female"
+        ],
+        "A Compare-Aggregate Model for Matching Text Sequences"
+    ],
+    "This paper proposes a framework whereby, to an attention mechanism relating one text segment to another piecewise, an aggregation mechanism is added to yield an architecture matching words of one segment to another. Different vector comparison operations are explored in this framework. The reviewers were satisfied that this work is relevant, timely, clearly presented, and that the empirical validation was sound. ": [
+        0.6705,
+        true,
+        [
+            null,
+            "female"
+        ],
+        "A Compare-Aggregate Model for Matching Text Sequences"
+    ],
+    "This paper proposes a hierarchical generative model where the lower level consists of points within datasets and the higher level models unordered sets of datasets.  The basic idea is to use a \"double\" variational bound where a higher level latent variable describes datasets and a lower level latent variable describes individual examples.  \n\nHierarchical modeling is an important and high impact problem, and I think that it's under-explored in the Deep Learning literature.  \n\nPros:\n  -The few-shot learning results look good, but I'm not an expert in this area.  \n  -The idea of using a \"double\" variational bound in a hierarchical generative model is well presented and seems widely applicable.  \n\nQuestions: \n  -When training the statistic network, are minibatches (i.e. subsets of the examples) used?  \n  -If not, does using minibatches actually give you an unbiased estimator of the full gradient (if you had used all examples)?  For example, what if the statistic network wants to pull out if *any* example from the dataset has a certain feature and treat that as the characterization.  This seems to fit the graphical model on the right side of figure 1.  If your statistic network is trained on minibatches, it won't be able to learn this characterization, because a given minibatch will be missing some of the examples from the dataset.  Using minibatches (as opposed to using all examples in the dataset) to train the statistic network seems like it would limit the expressive power of the model.  \n\nSuggestions: \n  -Hierarchical forecasting (electricity / sales) could be an interesting and practical use case for this type of model.  ": [
+        1.0815,
+        true,
+        [
+            "male",
+            "male"
+        ],
+        "Towards a Neural Statistician"
+    ],
+    "This paper proposes a variant of a recurrent neural network that has two orthogonal temporal dimensions that can be used as a decoder to generate tree structures (including the topology) in an encoder-decoder setting. The architecture is well motivated and I can see several applications (in addition to what's presented in the paper) that need to generate tree structures given an unstructured data.\n\nOne weakness of the paper is the limitation of experiments. IFTTT dataset seems to be an interesting appropriate application, and there is also a synthetic dataset, however it would be more interesting to see more natural language applications with syntactic tree structures. Still, I consider the experiments sufficient as a first step to showcase a novel architecture.\n\nA strength is that the authors experiment with different design decisions when building the topology predictor components of the architecture, about when / how to decide to terminate, as opposed to making a single arbitrary choice.\n\nI see future applications of this architecture and it seems to have interesting directions for future work so I suggest its acceptance as a conference contribution.": [
+        2.3413999999999997,
+        true,
+        [
+            "male",
+            "male"
+        ],
+        "Tree-structured decoding with doubly-recurrent neural networks"
+    ],
+    "This paper proposes an amortized version of the Stein variational gradient descent (SVGD) method in which \"a neural network is trained to mimic the SVGD dynamics\". It applies the method to generative adversarial training to yield a training procedure where the discriminator is interpreted as an energy-based probabilistic model.\n\nOne criticism I have of the presentation is that a lot of time and energy is spent setting the table for a method which is claimed to be widely applicable, and the scope of the empirical evaluation is narrowed down to a single specific setting. In my view, either the paper falls short of its goal of showing how widely applicable the proposed method is, or it spends too much time setting the table for SteinGAN and not enough time evaluating it.\n\nThe consequence of this is that the empirical results are insufficient in justifying the approach proposed by the paper. As another reviewer pointed out, DCGAN is becoming outdated as a benchmark for comparison.\n\nQualitatively, SteinGAN samples don't look significantly better than DCGAN samples, except for the CelebA dataset. In that particular case, the DCGAN samples don't appear to be the ones presented in the original paper; where do they come from?\n\nQuantitatively, DCGAN beats SteinGAN by a small margin for the ImageNet Inception Score and SteinGAN beats DCGAN by an even smaller margin for the CIFAR10 Inception Score. Also, in my opinion, the \"testing accuracy\" score is not a convincing evaluation metric: while it is true that it measures the amount of information captured in the simulated image sets, it is only sensitive to information useful for the discrimination task, not for the more general modeling task. For instance, this score is likely completely blind to information present in the background of the image.\n\nBecause of the reasons outlined above, I don't think the paper is ready for publication at ICLR.": [
+        0.05279999999999996,
+        false,
+        [
+            null,
+            "male"
+        ],
+        "Learning to Draw Samples: With Application to Amortized MLE for Generative Adversarial Learning"
+    ],
+    "This paper proposes learning document embeddings as a sum of the constituent word embeddings, which are jointly learned and randomly dropped out ('corrupted') during training. While none of the pieces of this model are particularly novel, the result is an efficient learning algorithm for document representation with good empirical performance.\n\nJoint training of word and document embeddings is not a new idea, nor is the idea of enforcing the document to be represented by the sum of its word embeddings (see, e.g. '\u201cThe Sum of Its Parts\u201d: Joint Learning of Word and Phrase Representations with Autoencoders' by Lebret and Collobert). Furthermore, the corruption mechanism is nothing other than traditional dropout on the input layer. Coupled with the word2vec-style loss and training methods, this paper offers little on the novelty front.\n\nOn the other hand, it is very efficient at generation time, requiring only an average of the word embeddings rather than a complicated inference step as in Doc2Vec. Moreover, by construction, the embedding captures salient global information about the document -- it captures specifically that information that aids in local-context prediction. For such a simple model, the performance on sentiment analysis and document classification is quite encouraging.\n\nOverall, despite the lack of novelty, the simplicity, efficiency, and performance of this model make it worthy of wider readership and study, and I recommend acceptance.": [
+        2.9725,
+        true,
+        [
+            "female"
+        ],
+        "Efficient Vector Representation for Documents through Corruption"
+    ],
+    "This paper proposes to use RNN and reinforcement learning for solving combinatorial optimization problems. The use of pointer network is interesting as it enables generalization to arbitrary input size. The proposed method also \"fintunes\" on test examples with active search to achieve better performance.\n\nThe proposed method is theoretically interesting as it shows that RNN and RL can be combined to solve combinatorial optimization problems and achieve comparable performance to traditional heuristic based algorithms.\n\nHowever, the lack of complexity comparison against baselines make it impossible to tell whether the proposed method has any practical value. The matter is further complicated by the fact that the proposed method runs on GPU while baselines run on CPU: it is hard to even come up with a meaningful unit of complexity. Money spent on hardware and electricity per instance may be a viable option.\n\nFurther more, the performance comparisons should be taken with a grain of salt as traditional heuristic based algorithms can often give better performance if allowed more computation, which is not controlled across algorithms.": [
+        2.6438,
+        false,
+        [
+            "male",
+            "male",
+            "male",
+            "male",
+            "male"
+        ],
+        "Neural Combinatorial Optimization with Reinforcement Learning"
+    ],
+    "This paper proposes to use RNN and reinforcement learning for solving combinatorial optimization problems. The use of pointer network is interesting as it enables generalization to arbitrary input size. The proposed method also \"fintunes\" on test examples with active search to achieve better performance.\n\nThe proposed method is theoretically interesting as it shows that RNN and RL can be combined to solve combinatorial optimization problems and achieve comparable performance to traditional heuristic based algorithms.\n\nHowever, the lack of complexity comparison against baselines make it impossible to tell whether the proposed method has any practical value. The matter is further complicated by the fact that the proposed method runs on GPU while baselines run on CPU: it is hard to even come up with a meaningful unit of complexity. Money spent on hardware and electricity per instance may be a viable option.\n\nFurther more, the performance comparisons should be taken with a grain of salt as traditional heuristic based algorithms can often give better performance if allowed more computation, which is not controlled across algorithms.\n\n": [
+        2.6438,
+        false,
+        [
+            "male",
+            "male",
+            "male",
+            "male",
+            "male"
+        ],
+        "Neural Combinatorial Optimization with Reinforcement Learning"
+    ],
+    "This paper provides an interesting analysis of the conditions which enable generation of natural looking textures. The results is quite surprising, and analysis is quite thorough. \nI do think the evaluation methods require more work, but as other reviewers mentioned this could be an interesting line of work moving forwards and does not take too much from this current paper which, I think, should be accepted.": [
+        1.7104,
+        true,
+        [
+            "male",
+            "male",
+            "male",
+            "male"
+        ],
+        "What does it take to generate natural textures?"
+    ],
+    "This was one of the more controversial submissions to this area, and there was extensive discussion over the merits and contributions of the work. The paper also benefitted from ICLRs open review system as additional researchers chimed in on the paper and the authors resubmitted a draft. The authors did a great job responding and updating the work and responding to criticisms. In the end though, even after these consideration, none of the reviewers strongly supported the work and all of them expressed some reservations. \n \n Pros:\n - All agree that the work is extremely clear, going as far as saying the work is \"very well written\" and \"easy to understand\". \n - Generally there was a predisposition to support the work for its originality particularly due to its \"methodological contributions\", and even going so far as a saying it would generally be a natural accept.\n \n Cons:\n - There was a very uncommonly strong backlash to the claims made by the paper, particularly the first draft, but even upon revisions. One reviewer even saying this was an \"excellent example of hype-generation far before having state-of-the-art results\" and that it was \"doing a disservice to our community since it builds up an expectation that the field cannot live up to\" . This does not seem to be an isolated reviewer, but a general feeling across the reviews. Another faulting \"the toy-ness of the evaluation metric\" and the way the comparisons were carried out.\n - A related concern was a feeling that the body of work in operations research was not fully taken account in this work, noting \"operations research literature is replete with a large number of benchmark problems that have become standard to compare solver quality\". The authors did fix some of these issues, but not to the point that any reviewer stood up for the work.": [
+        3.5680999999999994,
+        false,
+        [
+            "male",
+            "male",
+            "male",
+            "male",
+            "male"
+        ],
+        "Neural Combinatorial Optimization with Reinforcement Learning"
+    ],
+    "This work proposed a simple but strong baseline for parametric texture synthesis. In empirical experiments, samples generated by the baseline composed by multi-scale and random filters sometime rival the VGG-based model which has multi-layer and pre-trained filters. The authors concluded that texture synthesis does not necessarily depend on deep hierarchical representations or the learned feature maps. \nThis work is indeed interesting and insightful. However, the conclusions are needed to be further testified (especially for deep hierarchical representations). Firstly, all of generated samples by both VGG and single layer model are not perfect and much worse than the results from non-parametric methods.  Besides VGG-based model seems to do better in inpainting task in Figure 7. Last but not least, would a hierarchical model (instead of lots of filters with different size) handle multi-scale more efficiently? ": [
+        1.3917,
+        true,
+        [
+            "male",
+            "male",
+            "male",
+            "male"
+        ],
+        "What does it take to generate natural textures?"
+    ],
+    "Unsupervised document representations is an active area of research, so it would be useful to benchmark against something more recent than doc2vec, which was in ICML 2014. Skip-thought vectors, in particular, should really be included.": [
+        0.6808,
+        true,
+        [
+            "female"
+        ],
+        "Efficient Vector Representation for Documents through Corruption"
+    ],
+    "We added a short conclusion reflecting some of the discussions with the reviewers. ": [
+        0.0,
+        true,
+        [
+            "male",
+            "male"
+        ],
+        "A recurrent neural network without chaos"
+    ],
+    "We ask reviewers to have a look at the new version of the paper again given the changes outlined below:\n\n- We state clearly in the abstract, introduction, and conclusion that our results are still far from the state-of-the-art (this includes adding an updated version of Figure 1 back into the introduction).\n\n- We include the original KnapSack baselines back into the paper.\n\n- We explain in details how the running time of the LKH baseline is obtained.\n\n- We modify the statement on the performance of greedy approaches: instead of stating that they are \u201cjust a few percents from optimality\u201d, we express that they are \u201cstill quite far from optimality\u201d.\n\nWe thank reviewers for their help in improving the quality of the paper.": [
+        1.1925,
+        false,
+        [
+            "male",
+            "male",
+            "male",
+            "male",
+            "male"
+        ],
+        "Neural Combinatorial Optimization with Reinforcement Learning"
+    ],
+    "We highly appreciate the time and feedback from all the reviewers, all of which we will take into serious consideration in our revision. We will particularly strengthen and clarify the empirical experiments. Below we address some of the major points: \n\n[Testing Accuracy Score]\nWe agree with the reviewers' point on the \"testing accuracy\" score, but think that it still provides some valuable insight about the dataset. Its blindness to the background can be a good thing in that it captures more information about the \"effective amount\" of objects the dataset contains.  The problem is that it is very difficult to obtain a *perfect* score, and reporting more than one metrics (in an objective fashion) can help to gain more comprehensive understandings. \n\n[Repulsive Term in High Dimension]\nOur repulsive force works due to two tricks: 1) scaling the bandwidth with the data diversity using the median trick, which alleviates the exponential decay of RBF kernel. 2) define kernel on the feature space instead of the raw pixels of the images, which allows us to respect the manifold structure of the images. The framework of SVGD allows us to use any positive definite kernels and change it adaptively during iterations, because the kernel only defines the \"tangent space\" for improvement. \n\nSteinGAN without kernel corresponds to Viterbi training of the energy model and we find it work well with careful tuning of parameters, but tend to converge to a small number of bad-looking images after running a large number of iterations; adding the kernel under the same setting helps prevent this problem. Our current results on CIFAR10 shows that SteinGAN without kernel gives an inception score of 6.34, while that SteinGAN with kernel gives 6.76. \n\n[Amortized is slower than non-amortized]\nAlthough the amortized algorithm has the overhead of updating $\\xi$, it stores the information in a generative network, and allows us to simulate as many images as we need. By using the one-step gradient update we proposed, the update of $\\xi$ is the same as standard backpropagation except replacing the Dlogp with the SVGD gradient. ": [
+        4.0875,
+        false,
+        [
+            null,
+            "male"
+        ],
+        "Learning to Draw Samples: With Application to Amortized MLE for Generative Adversarial Learning"
+    ],
+    "We thank reviewers for their valuable feedback that helped us improve the paper. We appreciate their interest in the method and its novelty. We have made several changes to the paper which are summarized below. We ask reviewers to evaluate the new version of the paper and adjust their reviews if necessary.\n\n1) Previous Figure 1, which was problematic due to different possible interpretations of \u201clocal search\u201d was removed.\n\n2) We added precise running time evaluations for all of the methods in the paper. Table 3 presents running time of the RL pretraining-greedy method and the solvers we compare against. Table 4 presents the performance and corresponding running time of RL pretraining-Sampling and RL pretraining-Active Search as a function of the number solutions considered. It shows how they can be stopped early at the cost of a small performance degradation. Table 6 contains the same information for the metaheuristics from OR-Tools vehicle routing library solver. We controlled the complexity of these approaches by letting all of them evaluate 1,280,000 solutions. Section 5.2 was rewritten in light of the new results.\n\n3) We experimented with a new approach, called RL pretraining-Greedy@16, that decodes greedily from 16 different pretrained models at inference time and selects the shortest tour. It runs as fast as the solvers while only suffering from a small performance cost.\n\n4) We added a discussion in Section 6 (Generalization to other problems) explaining how one may apply Neural Combinatorial Optimization to problems for which coming up with a feasible solution is challenging by itself.\n\n5) We added a more detailed description of the critic network (see Section 4 - Critic\u2019s architecture for TSP).\n\nPlease take a look and let us know your thoughts.": [
+        0.3967000000000001,
+        false,
+        [
+            "male",
+            "male",
+            "male",
+            "male",
+            "male"
+        ],
+        "Neural Combinatorial Optimization with Reinforcement Learning"
+    ]
+}
